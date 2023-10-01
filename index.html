@@ -11,6 +11,7 @@
             .calc{
                 background-color: rgb(34, 54, 50);
                 width: 350px;
+                height: 500px;
                 margin-left: auto;
                 margin-right: auto;
                 margin-top: 50px;
@@ -37,7 +38,7 @@
                 justify-content:space-evenly;
             }
             button{
-                font-size: 30px;
+                font-size: 20px;
                 height: 45px;
                 width: 50px;
                 padding:2px;
@@ -46,7 +47,7 @@
             }
             .button:hover{
                 border-radius: 15px;
-                background-color: rgb(172, 161, 148);
+                *background-color: rgb(172, 161, 148);
             }
             .brand{
                 color:white;
@@ -54,14 +55,11 @@
                 font-size: 20px;
                 padding: 5px;
             }
-           
             .d{
                 background-color: rgb(33, 172, 114);
                 height: 20px;
                 width:20px;
-                border: 1px solid white;
-                
-                
+                border: 1px solid white;-
             }
             .solar{
                 display: flex;
@@ -71,6 +69,20 @@
             }
             .b{
                 background-color: rgb(143, 162, 162);
+            }
+            .btn{
+                display: flex;
+                margin-top: 15px;    
+            }
+            .btn1{
+                font-size: 20px;
+                width: 100px;
+                margin-left: 30px;
+            }
+            .btn2{
+                font-size: 20px;
+                width: 100px;
+                margin-left: 90px;
             }
         </style>
     </head>
@@ -82,31 +94,53 @@
             <div class="d"></div>
             <div class="d"></div>
             </div>
-            <input type="text" class="input"/>
+            <input type="text" class="input" id="inputbox"/>
             <div class="button-row">
-                <button class="button">1</button>
-                <button class="button">2</button>
-                <button class="button">3</button>
-                <button class="button b">+</button>
+                <button class="button" onclick="handleKeyPress('1')">1</button>
+                <button class="button" onclick="handleKeyPress('2')">2</button>
+                <button class="button" onclick="handleKeyPress('3')">3</button>
+                <button class="button b" onclick="handleKeyPress('+')">+</button>
             </div>
             <div class="button-row">
-                <button class="button">4</button>
-                <button class="button">5</button>
-                <button class="button">6</button>
-                <button class="button b">-</button>
+                <button class="button" onclick="handleKeyPress('4')">4</button>
+                <button class="button" onclick="handleKeyPress('5')">5</button>
+                <button class="button" onclick="handleKeyPress('6')">6</button>
+                <button class="button b" onclick="handleKeyPress('-')">-</button>
             </div> 
             <div class="button-row">
-                <button class="button">7</button>
-                <button class="button">8</button>
-                <button class="button">9</button>
-                <button class="button b">x</button>
+                <button class="button" onclick="handleKeyPress('7')">7</button>
+                <button class="button" onclick="handleKeyPress('8')">8</button>
+                <button class="button" onclick="handleKeyPress('9')">9</button>
+                <button class="button b" onclick="handleKeyPress('*')">x</button>
             </div>
             <div class="button-row">
-                <button class="button b">.</button>
-                <button class="button ">0</button>
-                <button class="button b">=</button>
-                <button class="button b">/</button>
+                <button class="button b" onclick="handleKeyPress('.')">.</button>
+                <button class="button" onclick="handleKeyPress('0')">0</button>
+                <button class="button b" onclick="handleKeyPress('=')">=</button>
+                <button class="button b" onclick="handleKeyPress('/')">/</button>
+            </div>
+            <div class="btn">
+                <button class="btn1" onclick="handleKeyPress('RESET')">RESET</button>
+                <button class="btn2" onclick="handleKeyPress('CLEAR')">CLEAR</button>
             </div>
         </div>
+
+        <script>
+            function handleKeyPress(key){
+                const num= document.getElementById('inputbox');
+                if(key=='='){
+                    num.value = eval(num.value);
+                }else if(key=='RESET'){
+                    num.value = '';
+                }else if(key=='CLEAR'){
+                    num.value='';
+                }else{
+                    num.value = num.value + key;
+                }
+                
+
+            }  
+            
+        </script>
     </body>
 </html>
